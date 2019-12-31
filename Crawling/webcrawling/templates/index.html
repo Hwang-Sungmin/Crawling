@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>검색</title>
+    <style>
+        * {
+            font-size: 16px;
+            font-family: Consolas, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form method="get" action="{% url 'webcrawling:find' %}">
+            <input type="text" name="name" placeholder="검색어 입력">
+            <input type="submit" value="누르기">
+        </form>
+        <input type="button" value="리셋" a href="{% url 'webcrawling:delete_all' %}"></a>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">타이틀</th>
+                    <th scope="col">웹주소</th>
+                    <th scope="col"></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in alldata %}
+                <tr>
+                    <td>{{data.title}}</td>
+                    <td>{{data.web}}</td>
+                    <td><input type="button" value="지우기" a href ="{% url 'webcrawling:delete_one' %}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
