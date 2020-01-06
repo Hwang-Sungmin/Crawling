@@ -5,7 +5,11 @@ from .models import data
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    datas = data.objects.all()
+    context = {
+        'alldata' : datas,
+    }    
+    return render(request, 'index.html', context)
 
 def find(request):
     # 네이버 검색시 base가 되는 url 
@@ -33,10 +37,17 @@ def find(request):
     else :
         return render(request, 'error.html')
 
-def delete_one(request):
+def delete_one(request, data_id):
     datas = data.objects.get(id=data_id)
     datas.delete()
-    return redirect('webcrawling')
+
+    datas = data.objects.all()
+    context = {
+        'alldata' : datas,
+    }    
+
+    return render(request, 'index.html', context)
+
 
 def delete_all(request):
     data_all = data.objects.all()

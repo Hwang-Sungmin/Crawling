@@ -9,5 +9,5 @@ urlpatterns = [
     #path('articles/<int:article_id>/delete/', article_views.delete, name="delete"),
     #path('find/<int:data_id>/delete/', views_web.delete, name="delete"),
     path('delete_all/', views_web.delete_all, name="delete_all"),
-    path('delete_one/', views_web.delete_one, name="delete_one"),
+    path('<int:data_id>/delete_one/', views_web.delete_one, name="delete_one"),
 ]

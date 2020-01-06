@@ -17,8 +17,9 @@
         <form method="get" action="{% url 'webcrawling:find' %}">
             <input type="text" name="name" placeholder="검색어 입력">
             <input type="submit" value="누르기">
+            <input type="button" value="리셋버튼" onclick="location.href='{% url 'webcrawling:delete_all' %}'"> 
         </form>
-        <input type="button" value="리셋버튼" onclick="location.href='{% url 'webcrawling:delete_all' %}'">
+        
         <!--<input type="button" value="리셋" a href="{% url 'webcrawling:delete_all' %}"></a>-->
     </div>
     <div class="container">
@@ -36,7 +37,7 @@
                 <tr>
                     <td>{{data.title}}</td>
                     <td>{{data.web}}</td>
-                    <td><input type="button" value="지우기" a href ="{% url 'webcrawling:delete_one' %}"></td>
+                    <td><input type="button" name="data_id" value="지우기" onclick="location.href='{% url 'webcrawling:delete_one' data.id %}'"></td>
                 </tr>
                 {% endfor %}
             </tbody>
