@@ -17,7 +17,7 @@ def find(request):
     # html을 긁어옴
     soup = BeautifulSoup(html, "html.parser")
     title = soup.find_all(class_="sh_blog_title")
-    print(title)
+    # print(title)
     # 값이 있을때
     if title:
         for i in title:
@@ -33,13 +33,13 @@ def find(request):
     else :
         return render(request, 'error.html')
 
-def delete_one(request, data_id):
+def delete_one(request):
     datas = data.objects.get(id=data_id)
     datas.delete()
     return redirect('webcrawling')
 
 def delete_all(request):
-    datas = data.objects.all()
-    datas.delete()
+    data_all = data.objects.all()
+    data_all.delete()
     return render(request, 'index.html')
 
