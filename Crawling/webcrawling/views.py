@@ -5,17 +5,14 @@ from .models import data
 # Create your views here.
 
 def index(request):
-    datas = data.objects.all()
-    context = {
-        'alldata' : datas,
-    }    
-    return render(request, 'index.html', context)
+   
+    return render(request, 'index.html')
 
-def find(request):
+def nfind(request):
     # 네이버 검색시 base가 되는 url 
     baseUrl ='https://search.naver.com/search.naver?where=post&sm=tab_jum&query='
-    # index의 검색어 받아오기
-    search = request.GET['name']
+    # index의 검색어 받아오기   
+    search = request.GET['nname']
     url = baseUrl + search
     html = requests.get(url).text 
     # html을 긁어옴
@@ -36,6 +33,17 @@ def find(request):
         return render(request, 'index.html', context)    
     else :
         return render(request, 'error.html')
+
+def wfind(request):
+    baseUrl = 'https://ko.wikipedia.org/wiki/'
+    search = request.GET['wname']
+    url = baseUrl + search
+    html = requests.get(url).text 
+    # html을 긁어옴
+    soup = BeautifulSoup(html, "html.parser")
+    print(soup)
+    return render(request, 'index.html')
+
 
 def delete_one(request, data_id):
     datas = data.objects.get(id=data_id)
