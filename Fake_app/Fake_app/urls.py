@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('web/', include('mbam.urls')),
+    path('mbam/', include('mbam.urls')),
+    path('jquery/', include('jquery.urls')),
 ]

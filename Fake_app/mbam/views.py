@@ -8,7 +8,11 @@ import random
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    
+    
+    
+    
+    return render(request, 'mbam/index.html')
 
 def login(request):
     id = request.POST['id']
@@ -153,7 +157,7 @@ def login(request):
             driver.find_element_by_xpath('//*[@id="btn_submit"]').click()
             end = '끝냈습니다.' 
 
-    return render(request, 'index.html', context = {
+    return render(request, 'mbam/index.html', context = {
         'end' : end,
         'dotori' : dotori,
     })
