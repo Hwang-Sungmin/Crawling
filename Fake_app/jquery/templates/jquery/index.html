@@ -1,12 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    제이쿼리
-</body>
-</html>
+{% extends 'jquery/base.html' %}
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h4>메크로 프로그램</h4>
+  <form method="POST" class="form-inline" action="{% url 'jq:find' %}">
+    <input type="hidden" name="csrfmiddlewaretoken" value={{csrf_token}}>
+    <input type="text" name="id" placeholder="아이디 입력">
+    <input type="text" name="pwd" placeholder="비밀번호 입력"><br><br>
+
+    <select class="types" id="inlineFormCustomSelectPref" name="types">
+      <option selected>Choose...</option>
+      <option value="2">오피</option>
+      <option value="3">건마</option>
+      <option value="4">휴게</option>
+      <option value="5">안마</option>
+      <option value="6">술집</option>
+      <option value="7">키방</option>
+      <option value="8">립</option>
+    </select>
+
+    <select class="region" id="inlineFormCustomSelectPref" name="region">
+      <option selected>Choose...</option>
+      <option value="1">서울</option>
+      <option value="2">경기</option>
+      <option value="3">인부천</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary my-1">Submit</button>
+  </form>
+</div>
+<div>
+  {{message}}
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(function () {
+
+
+
+  })
+</script>
+{% endblock %}
+
+<!--
+<div class="container">
+  <button type="button" class="btn btn-secondary" id="seoul">서울</button>
+  <button type="button" class="btn btn-secondary" id="biseoul">비강남</button>
+</div>-->

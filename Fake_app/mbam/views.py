@@ -8,10 +8,6 @@ import random
 
 # Create your views here.
 def index(request):
-    
-    
-    
-    
     return render(request, 'mbam/index.html')
 
 def login(request):
