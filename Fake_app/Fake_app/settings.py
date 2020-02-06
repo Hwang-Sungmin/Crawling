@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mbam',
     'jquery',
+    'youtube',
+    'exam',
 ]
 
 MIDDLEWARE = [

@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('mbam/', include('mbam.urls')),
     path('jquery/', include('jquery.urls')),
+    path('youtube/', include('youtube.urls')),
+    path('exam/', include('exam.urls')),
 ]

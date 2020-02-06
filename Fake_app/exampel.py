@@ -17,6 +17,7 @@ driver.find_element_by_name('mb_password').send_keys(pwd)
 driver.find_element_by_xpath('//*[@id="miso_sidelogin"]/div/div[1]/button').click()
 
 
+
 #휴게텔 서울, 경기, 인천
 # elif(select == 'hges'):
 #     driver.find_element_by_xpath('//*[@id="MB-main-header"]/aside[1]/section/ul/li[4]/a').click()
