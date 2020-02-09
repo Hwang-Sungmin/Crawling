@@ -10,9 +10,9 @@ def index(request):
 
 def push(request):
     DB = Database()
-    DB.a = "dd"
-    DB.b = "dd"
-    DB.c = "dd"
+    DB.a = request.GET["Aaa"]
+    DB.b = request.GET["Abb"]
+    DB.c = request.GET["Acc"]
     DB.save()
 
     a = DB.a

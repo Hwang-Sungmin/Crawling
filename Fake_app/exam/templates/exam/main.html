@@ -12,12 +12,22 @@
 </head>
 
 <body>
-    <form method="GET"> 
-        <input id="Aa" class="A" type="text" name="Aa" />
-        <input id="Ab" class="A" type="text" name="Ab" />
-        <input id="Ac" class="A" type="text" name="Ac" />
-        <input id="button" type="button" value="누르기" onclick="button_click()" />
+    <!-- 무조건 폼으로해야할까? -->
+    <form method="GET" action="{% url 'exam:push' %}"> 
+        <input id="Aa" class="A" type="text" name="Aaa" value="{{input_a}}" />
+        <input id="Ab" class="A" type="text" name="Abb" value="{{input_b}}" />
+        <input id="Ac" class="A" type="text" name="Acc" value="{{input_c}}" />
+        <input type="submit" value="누르기" />
     </form>
+    <!-- <form method="GET" > 
+        <input id="Aa" class="A" type="text" name="Aaa" value="{{input_a}}" />
+        <input id="Ab" class="A" type="text" name="Abb" value="{{input_b}}" />
+        <input id="Ac" class="A" type="text" name="Acc" value="{{input_c}}" />
+        <input type="button" value="누르기" onclick="location.href='{% url 'exam:push' %}'" />
+    </form> -->
+
+
+
     
         <!-- <input type="button" value="누르기" onclick="location.href='{% url 'exam:push' %}'" /> -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -30,26 +40,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
     <script>
-        function button_click() {
-
-            var Aa = $("#Aa").val();
-            var Ab = $("#Ab").val();
-            var Ac = $("#Ac").val();
-
-            console.log(Aa, Ab, Ac)
-            $.ajax({
-                url: "{% url 'exam:push' %}",
-                method: 'GET',
-                data: {
-                    Aa: Aa,
-                    Ab: Ab,
-                    Ac: Ac,
-                },
-                success: function (data) {
-                    console.log("전송 성공");
-                },
-            })
-        }
+  
     </script>
 
 
