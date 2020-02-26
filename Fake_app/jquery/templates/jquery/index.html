@@ -8,6 +8,7 @@
 {% block content %}
 <div class="center" class="container">
   <h4>메크로 프로그램</h4>
+  <span>키, 립, 핸플은 지역2번부터</span>
   <form method="POST" class="form-inline" action="{% url 'jq:find' %}">
     <input type="hidden" name="csrfmiddlewaretoken" value={{csrf_token}}>
     <input type="text" name="id" placeholder="아이디 입력">
@@ -22,6 +23,7 @@
       <option value="6">술집</option>
       <option value="7">키방</option>
       <option value="8">립</option>
+      <option value="9">핸플</option>
     </select>
 
     <select class="region" id="region" name="region">
